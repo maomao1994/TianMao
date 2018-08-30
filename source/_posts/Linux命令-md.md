@@ -11,6 +11,24 @@ copyright: false
 
 
 ### 网络相关
+- 连接远程服务器
+```
+ssh tm@172.16.18.24
+# 之后会提醒输入密码
+```
+
+- 远程上传文件，下载文件命令
+
+```
+# 下载
+scp -r username@192.168.0.1:/home/username/remotefile.txt
+# 上传
+scp -r localfile.txt username@192.168.0.1:/home/username/
+```
+
+
+
+
 - tcpdump抓包，指定网卡，指定端口，指定host,写到test.pcap
 ```
 tcpdump -i ens7f0 port 10080 and host 192.168.126.3 -w test.pcap
@@ -40,6 +58,18 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
 ```
 ps -ef | grep python | grep -v grep | awk '{print $2}' | xargs kill -9 
 ```
+### 编辑相关
+- 源码查看：主要使用vim快速查看函数的原型定义
+```
+#（1）真对于系统函数，偶尔可以使用shift+K进行定位
+#（2）主要的方法是使用ctags工具来生成tags文件，方法如下
+sudo apt-get install ctags # 安装ctags软件
+ctags -R # 生成tags文件
+:set tags=绝对路径（tags文件）
+# 跳转方法：ctrl+]跳转到光标所在单词的tag，ctrl+T：跳回到原来的位置，有多个tag的时候使用g]键进行跳转。
+```
+
+
 ### 编译相关
 - 编译openssl相关的demo
 ```

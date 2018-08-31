@@ -26,7 +26,19 @@ scp -r username@192.168.0.1:/home/username/remotefile.txt
 scp -r localfile.txt username@192.168.0.1:/home/username/
 ```
 
-
+- 开通ssh服务
+```
+# 查看是否开启了ssh服务是否安装,使用命令：
+sudo ps -e |grep ssh
+# 先更新资源列表，使用命令：
+sudo apt-get update
+# 安装openssh-server，使用命令：
+sudo apt-get install openssh-server
+# 启动ssh命令
+service sshd start
+# 停止ssh命令
+service sshd stop
+```
 
 
 - tcpdump抓包，指定网卡，指定端口，指定host,写到test.pcap

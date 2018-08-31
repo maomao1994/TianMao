@@ -47,7 +47,12 @@ More info: [Generating](https://hexo.io/docs/generating.html)
 ``` bash
 $ hexo deploy
 ```
+### 上传图片
+```
+1 把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true
 
+2 在你的hexo目录下执行这样一句话npm install hexo-asset-image --save
+```
 ### 示例
 ```
 title: Linux权能与PAM机制

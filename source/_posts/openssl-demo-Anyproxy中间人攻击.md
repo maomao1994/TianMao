@@ -18,8 +18,8 @@ openssl s_client -connect 172.16.18.24:52013
 
 ```
 s_server
-![](Img/openssl_demo_server)
+![openssl_demo_server](Img/openssl_demo_server.png)
 s_client
-![](Img/openssl_demo_client)
+![openssl_demo_client](Img/openssl_demo_client.png)
 ### wireshark分析握手过程
 

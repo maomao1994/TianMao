@@ -8,7 +8,10 @@ copyright: false
 ---
 
 ### 文件相关
-
+- 建立软链接，快速启动软件（不用修改环境变量）
+```sh
+ss@ss:/usr/bin$ sudo ln -s /opt/pycharm/bin/pycharm.sh pycharm
+```
 
 ### 网络相关
 - 连接远程服务器

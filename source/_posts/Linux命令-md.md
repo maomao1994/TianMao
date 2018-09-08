@@ -8,21 +8,30 @@ copyright: false
 ---
 
 ### 文件相关
+<<<<<<< HEAD
 - 建立软链接，快速启动软件（不用修改环境变量）
 ```sh
 ss@ss:/usr/bin$ sudo ln -s /opt/pycharm/bin/pycharm.sh pycharm
 ```
+=======
+- 查看文件行数
+```sh
+wc -l filename #就是查看文件里有多少行,wc -l *.csv ==>列出所有csv文件行数
+wc -w filename #看文件里有多少个word。
+wc -L filename #文件里最长的那一行是多少个字
+>>>>>>> 270e0d60ab98ec4577dea8a00c5377e2130b28b6
+```
 
 ### 网络相关
 - 连接远程服务器
-```
+```sh
 ssh tm@172.16.18.24
 # 之后会提醒输入密码
 ```
 
 - 远程上传文件，下载文件命令
 
-```
+```sh
 # 下载
 scp -r username@192.168.0.1:/home/username/remotefile.txt
 # 上传
@@ -30,7 +39,7 @@ scp -r localfile.txt username@192.168.0.1:/home/username/
 ```
 
 - 开通ssh服务
-```
+```sh
 # 查看是否开启了ssh服务是否安装,使用命令：
 sudo ps -e |grep ssh
 # 先更新资源列表，使用命令：
@@ -70,7 +79,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
 
 ### 性能相关
 - 杀掉所有的python进程（如：使用了多进程）
-```
+```sh
 ps -ef | grep python | grep -v grep | awk '{print $2}' | xargs kill -9 
 ```
 ### 编辑相关
@@ -87,7 +96,7 @@ ctags -R # 生成tags文件
 
 ### 编译相关
 - 编译openssl相关的demo
-```
+```sh
 # 编译服务端
 gcc -o ssl_server ssl_server.c -Wall -g -lssl -lcrypto
 # 编译客户端

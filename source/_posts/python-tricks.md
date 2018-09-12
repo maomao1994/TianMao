@@ -7,6 +7,12 @@ keywords : python tricks
 ---
 
 ## python使用相关的技巧
+- 模块路径（在命令行下，只能识别到当前的路径）
+```python
+import sys
+sys.path.append("项目的绝对路径")
+```
+
 
 - 截取字符串s前1024位，不够的位置填充o
 ```python

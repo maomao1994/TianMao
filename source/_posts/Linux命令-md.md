@@ -14,6 +14,13 @@ wc -l filename #就是查看文件里有多少行,wc -l *.csv ==>列出所有csv
 wc -w filename #看文件里有多少个word。
 wc -L filename #文件里最长的那一行是多少个字
 ```
+- 查看文件的前/后 n 行
+```sh
+head -n "文件名"
+tail -n "文件名"
+```
+
+
 
 ### 网络相关
 - 连接远程服务器
@@ -71,6 +78,15 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
 ```
 
 ### 性能相关
+- 后台运行相关
+```
+fg、bg、jobs、&、ctrl+z
+1. & 最经常被用到这个用在一个命令的最后，可以把这个命令放到后台执行
+2. ctrl + z 可以将一个正在前台执行的命令放到后台，并且暂停
+3. jobs查看当前有多少在后台运行的命令
+4. fg将后台中的命令调至前台继续运行  
+如果后台中有多个命令，可以用 fg %jobnumber将选中的命令调出，%jobnumber是通过jobs命令查到的后台正在执行的命令的序号(不是pid)
+```
 - 杀掉所有的python进程（如：使用了多进程）
 ```sh
 ps -ef | grep python | grep -v grep | awk '{print $2}' | xargs kill -9 

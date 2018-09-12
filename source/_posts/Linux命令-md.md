@@ -8,11 +8,18 @@ copyright: false
 ---
 
 ### 文件相关
+<<<<<<< HEAD
+- 建立软链接，快速启动软件（不用修改环境变量）
+```sh
+ss@ss:/usr/bin$ sudo ln -s /opt/pycharm/bin/pycharm.sh pycharm
+```
+=======
 - 查看文件行数
 ```sh
 wc -l filename #就是查看文件里有多少行,wc -l *.csv ==>列出所有csv文件行数
 wc -w filename #看文件里有多少个word。
 wc -L filename #文件里最长的那一行是多少个字
+>>>>>>> 270e0d60ab98ec4577dea8a00c5377e2130b28b6
 ```
 - 查看文件的前/后 n 行
 ```sh

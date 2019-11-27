@@ -6,6 +6,11 @@ categories: web
 keywords: mysql
 copyright: false
 ---
+
+记录一个完整的MySQL数据库sql语句.
+
+<!--more-->
+
 ```sql
 DROP DATABASE IF EXISTS sampledb;
 CREATE DATABASE sampledb DEFAULT CHARACTER SET utf8;

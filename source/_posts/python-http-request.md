@@ -4,6 +4,11 @@ date: 2018-09-16 17:24:42
 tags: http request
 categories: python
 ---
+
+使用Python构建HTTP请求,提交数据.
+
+<!--more-->
+
 ```python
 #!/usr/bin/env python
 # -*-coding:utf-8 -*-

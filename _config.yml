@@ -43,7 +43,10 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  
+
+auto_excerpt:
+  enable: true
+  length: 150
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -81,3 +84,25 @@ deploy:
   type: git
   repo: git@github.com:maomao1994/maomao1994.github.io.git
   branch: master
+
+Plugins:
+- hexo-generator-baidu-sitemap
+- hexo-generator-sitemap
+
+baidusitemap:
+    path: baidusitemap.xml
+sitemap:
+    path: sitemap.xml
+
+search:
+    path: search.xml
+    field: post
+    format: html
+    limit: 10000
+
+# MathJax Support
+math:
+  engine: 'mathjax'
+  mathjax:
+    enable: true
+    per_page: true

@@ -1,5 +1,5 @@
 ---
-title: windows tips
+![file_in_folder_bat](windows-tips/title: windows tips
 date: 2018-09-13 19:42:06
 tags:
 ---
@@ -38,6 +38,6 @@ netsh wlan set hostednetwork mode=disallow
 
 
 
-<img src="windows-tips//windows-virtual-wifi-1.png">
+![file_in_folder_bat](windows-tips/windows-virtual-wifi-1.png)
 
-<img src="windows-tips//windows-virtual-wifi-2.png">
+![file_in_folder_bat](windows-tips/windows-virtual-wifi-2.png)

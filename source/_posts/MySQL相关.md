@@ -1,15 +1,18 @@
 ---
-title: mysql数据库建库建表
-date: 2018-08-28 20:22:27
-tags: mysql
-categories: web
-keywords: mysql
-copyright: false
+title: MySQL相关
+date: 2019-12-01 21:51:10
+tags: MySQL
+categories: BigData
+
 ---
 
-记录一个完整的MySQL数据库sql语句.
+## MySQL相关知识
+
+总结积累MySQL相关原理和操作。
 
 <!--more-->
+
+### 建库
 
 ```sql
 DROP DATABASE IF EXISTS sampledb;
@@ -190,3 +193,13 @@ INSERT INTO `t_user` VALUES (1,'tom','1234',2,0,203,NULL,NULL);
 INSERT INTO `t_user` VALUES (2,'john','1234',2,1,10,NULL,NULL);
 INSERT INTO `t_user` VALUES (3,'ggg','123123',1,0,110,NULL,NULL);
 ```
+
+### MySQL按行导入text
+
+```sql
+mysql --local-infile=1 -u root -p 
+use peoples_daily;
+load data local infile "/home/mao/Downloads/source_BIO_2014_cropus.csv" into table news_table(news_text);
+```
+
+![](MySQL相关/load-data-text.png)

@@ -88,6 +88,7 @@ deploy:
 Plugins:
 - hexo-generator-baidu-sitemap
 - hexo-generator-sitemap
+- hexo-reference
 
 baidusitemap:
     path: baidusitemap.xml

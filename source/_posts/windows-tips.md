@@ -19,6 +19,31 @@ popd
 结果如下：
 ![file_in_folder_bat](windows-tips/file_in_folder_bat.png)
 
+### 使用PowerShell重命名文件
+
+使用正则表达式，寻找文件名中第一次字母出现的位置，进行截断，批量重命名问价：
+
+```powershell
+foreach($f in gci pcaps *pcap)
+{
+	if ($f -match "(?<letter>[a-zA-Z])")
+	{
+		$a=$($f.BaseName).indexof($Matches.letter)
+		$new_name=$($f.BaseName).Substring($a)
+		echo $new_name
+		$f.MoveTo($f.Name.SubString($a))
+	}
+}
+```
+
+- 重命名之前
+
+<img src="windows-tips/rename-1.png" style="zoom:75%;" />
+
+- 重命名之后
+
+<img src="windows-tips/rename-2.png" style="zoom:75%;" />
+
 ###  使用windows开启wifi
 
 - 开启虚拟网卡

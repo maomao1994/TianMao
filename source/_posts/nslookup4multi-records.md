@@ -16,7 +16,8 @@ while read id servername;do
     echo "$id,$servername,$ip";
 done<$1 >$2
 ```
-### 以上，$1是第一个参数，就是要打开的域名文件，$2是跟在命令后的第二个参数，是需要保存结果的文件。^Name -A1表示:找到以Name开头的行，-A1表示显示下一行，grep的具体使用如下：
+以上，$1是第一个参数，就是要打开的域名文件，$2是跟在命令后的第二个参数，是需要保存结果的文件。^Name -A1表示:找到以Name开头的行，-A1表示显示下一行，grep的具体使用如下：
+
 ```
 使用方式：grep [OPTIONS] PATTERN [FILE...]
 grep [OPTIONS] [-e PATTERN | -f FILE] [FILE...]
@@ -31,6 +32,3 @@ grep [OPTIONS] [-e PATTERN | -f FILE] [FILE...]
 　-B #：显示被模式匹配的行及其前#行
 　-C #：显示被模式匹配的行及其前后各#行
 ```
-### 关于awk的使用
-awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑,这里$0则表示所有域,$1表示第一个域,$n表示第n个域。
-

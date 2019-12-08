@@ -5,9 +5,9 @@
 # Site
 title: MaoGuo's Blog
 subtitle:
-description: 我尽我心
+description: 我尽我力，我尽我心
 keywords:
-author: 茂锅
+author: 袤锅
 language: zh-CN
 timezone:
 
@@ -84,6 +84,9 @@ deploy:
   type: git
   repo: git@github.com:maomao1994/maomao1994.github.io.git
   branch: master
+
+footer:
+  counter: true
 
 Plugins:
 - hexo-generator-baidu-sitemap

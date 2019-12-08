@@ -2,7 +2,7 @@
 title: windows tips
 date: 2018-09-13 19:42:06
 tags: Windows
-categories: WIndows
+categories: Windows
 ---
 ## Windows系统使用
 

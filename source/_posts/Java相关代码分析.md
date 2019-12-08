@@ -1,23 +1,24 @@
 ---
-title: Java，Spring，MySQL中的时间问题
-date: 2019-10-12 09:50:22
-tags: Java时间相关
+title: Java相关代码分析
+date: 2019-12-08 13:11:02
+tags: 代码分析
 categories: Java
 ---
 
-## Java，Spring，MySQL中的时间问题
+分析Java相关的代码片段、细节等。
 
 <!--more-->
 
+## Java，Spring，MySQL中的时间问题
+
 ### Java
 
-#### （一）Java8之前
+#### Java8之前
 
 - java.util.Date
   - `Date`如果不格式化，打印出的日期可读性差
   - 使用`SimpleDateFormat`对时间进行格式化，但`SimpleDateFormat`是线程不安全的
-
--  案例
+- 案例
 
 ```java
 import java.text.DateFormat;
@@ -143,7 +144,7 @@ public class DateUtil {
 
 
 
-#### （二）Java8及其之后(重点关注表示范围)
+#### Java8及其之后(重点关注表示范围)
 
 - java.time.LocalDate
 
@@ -192,7 +193,7 @@ public class DateUtil {
 
 ### MySQL
 
-### （一）支持的数据类型
+### 支持的数据类型
 
 - TIME（不常用）(hhh:mm:ss)
 
@@ -230,7 +231,7 @@ public class DateUtil {
 
 
 
-### （二）[Java包](https://docs.oracle.com/javase/8/docs/api/java/sql/package-frame.html)
+### [Java包](https://docs.oracle.com/javase/8/docs/api/java/sql/package-frame.html)
 
 - java.sql.Date
 
@@ -245,15 +246,221 @@ public class DateUtil {
 > | `Timestamp(int year, int month, int date,int hour,int minute,int second,int nano)` Deprecated.  instead use the constructor `Timestamp(long millis)` |
 > | `Timestamp(long time)` Constructs a `Timestamp` object  using a milliseconds time value. |
 
-### （三）参考资料
+### 参考资料
 
 - [MySQL官方文档](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-types.html)
 
 ### 问题
 
 - 精度（尤其是在使用MySQL时候作为判断条件时）
-
 - 线程安全性
-
 - 时区
 
+## 使用mongoDB存储SpringBoot日志
+
+### 统一日志框架
+
+在系统开发的过程中,会使用到不同的技术,不同的技术会使用不同的日志框架.为了更好地处理日志信息,首先需要将日志框架进行统一.
+
+![](Java相关代码分析/log_framework.jpg)
+
+为了将其他的日志框架装换为slf4j,只需要在pom.xml进行如下配置:
+
+```xml
+      <!--统一日志框架: Slf4j+logback-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+        </dependency>
+```
+
+
+
+### Spring Boot连接mongoDB
+
+#### mongoDB安装和使用
+
+- 安装---使用docker
+
+- 新建数据库
+
+  - use admin
+
+  ![](Java相关代码分析/dbs.png)
+
+#### mongoDB的连接
+
+mongoDB的连接和其他数据库的连接存在一定的差异,主要是体现在mongoDB为每一个数据库设置了用户和密码,在建立建立连接通常采用一下方式.
+
+```java
+//spring.data.mongodb.uri=mongodb://用户名:密码t@ip:27017/数据库
+MongoClientURI mongoClientURI=new MongoClientURI(mongoUrl);
+```
+
+
+
+### 将日志信息写入mogoDB
+
+#### 重写logback.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- use Spring default values -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+    <appender name="MONGODB" class="com.mao.api.util.MongoAppender">
+        <collectionName>logging</collectionName>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="MONGODB"/>
+    </root>
+</configuration>
+```
+
+#### 定义Template
+
+```java
+package com.mao.api.core.config;
+
+import com.mongodb.MongoClientURI;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.mongodb.MongoDbFactory;
+import org.springframework.data.mongodb.core.MongoTemplate;
+
+import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
+import org.springframework.data.mongodb.core.convert.DefaultDbRefResolver;
+import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
+import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
+import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
+
+/**
+ * @Classname MongoConfig
+ * @Description TODO
+ * @Date 19-5-23 下午4:46
+ * @Created by mao<tianmao818@qq.com>
+ */
+//@Configuration
+public class MongoConfig {
+    @Value("${spring.data.mongodb.uri}")
+    private String mongoUrl;
+
+    public MongoTemplate mongoTemplate() {
+        MongoClientURI mongoClientURI=new MongoClientURI(mongoUrl);
+        MongoDbFactory mongoDbFactory = new SimpleMongoDbFactory(mongoClientURI);
+        DefaultDbRefResolver dbRefResolver = new DefaultDbRefResolver(mongoDbFactory);
+        MappingMongoConverter converter = new MappingMongoConverter(dbRefResolver, new MongoMappingContext());
+        converter.setTypeMapper(new DefaultMongoTypeMapper(null));
+
+        return new MongoTemplate(mongoDbFactory, converter);
+    }
+}
+```
+
+#### 定义日志Appender
+
+(重写append,start,stop,setApplicationContext)
+
+```java
+package com.mao.api.util;/**
+ * @Classname MongoAppender
+ * @Description TODO
+ * @Date 19-5-23 下午4:49
+ * @Created by mao<tianmao818@qq.com>
+ */
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.UnsynchronizedAppenderBase;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MongoAppender extends UnsynchronizedAppenderBase<ILoggingEvent> implements ApplicationContextAware{
+    private static MongoTemplate mongoTemplate;
+    private String collectionName;
+
+    @Override
+    protected void append(ILoggingEvent event) {
+        if (!started) {
+            return;
+        }
+        //日志存储内容
+        LogEntity log = new LogEntity();
+        log.threadName = event.getThreadName();
+        log.level = event.getLevel().levelStr;
+        log.formattedMessage = event.getFormattedMessage();
+        log.loggerName = event.getLoggerName();
+        log.timestamp = event.getTimeStamp();
+        //使用模板保存日志
+        mongoTemplate.save(log, collectionName);
+    }
+
+    @Override
+    public void start() {
+        super.start();
+    }
+
+    @Override
+    public void stop() {
+        super.stop();
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        if (applicationContext.getAutowireCapableBeanFactory().getBean(MongoTemplate.class) != null) {
+            mongoTemplate = applicationContext.getAutowireCapableBeanFactory().getBean(MongoTemplate.class);
+            LoggerFactory.getLogger(this.getClass()).info("[ApplicationContext] Autowire MongoTemplate, MongoAppender is ready.");
+        }
+    }
+
+    private class LogEntity {
+        String threadName;
+        String level;
+        String formattedMessage;
+        String loggerName;
+        Long timestamp;
+    }
+
+    public String getCollectionName() {
+        return collectionName;
+    }
+
+    public void setCollectionName(String collectionName) {
+        this.collectionName = collectionName;
+    }
+}
+```
+
+
+
+### 效果
+
+#### 查看collections
+
+![](Java相关代码分析/collections.png)
+
+#### 查看日志细节
+
+![](Java相关代码分析/log.png)

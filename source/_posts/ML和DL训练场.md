@@ -9,9 +9,11 @@ categories: machine learning
 
 <!--more-->
 
-## XGBoost
+## 算法研究
 
-### 概述
+### XGBoost
+
+#### 概述
 
 在这里,我们首先来看一看XGBoost训练完成之后的具体结果.在sklearn实现的xgboost中我们可以将每一棵树的结果绘制出来,具体的代码参考[这里](https://github.com/maomao1994/MachineLearning/blob/master/ensemble/boosting/xgboostExp/plotXgboost.ipynb) .
 
@@ -24,7 +26,7 @@ categories: machine learning
 - 串行执行是如何实现的呢?答案很容易理解,建立完成一棵树以后,在建立下一棵树的时候,是需要利用已经建立好的树来计算$\hat{y_i}^{(t-1)}$的,这个值又被用来计算残差$y_i-\hat{y_i}^{(t-1)}$,残差是loss的一个组成部分,同时是求解导数所必须的(求导很简单,因为算是函数都是那么集中,如均方误差等,导数有解析解,套上数据就行了).我们发现,新的树的建立依赖于已经建立好的树来参与计算.
 - 需要注意,一个特征在分割的时候并不是只使用一次,在xgboost中,每一个节点的分割都是遍历了所有的特征,使用贪心算法来进行分割的时候,还遍历了排好序的所有的取值,不过在近似处理的时候是对排好序的数据进行分桶后处理,算法的细节稍后讨论.
 
-### warning: math
+#### warning: math
 
 下面来谈论一下xgboost的数学细节,对于论文中出现的公式来进行逐个分析:
 
@@ -57,17 +59,15 @@ where $g_i=\partial_{\hat{y}^{t-1}}l(y_i,\hat{y}^{t-1})$(一阶导数),$h_i=\par
 
 
 
-### XGBoost相关的参数
+#### XGBoost相关的参数
 
 
 
-## ensemble之初音女神
+### ensemble之初音女神
 
 通过初音案例分析ensemble原理
 
-<!--more-->
-
-### 初音
+#### 初音
 
 ```python
 import matplotlib
@@ -102,7 +102,7 @@ miku_target = miku[:, 2]
 
 ![png](ML和DL训练场/output_2_1.png)
 
-### Decision Tree
+#### Decision Tree
 
 ```python
 from sklearn.tree import DecisionTreeClassifier
@@ -117,17 +117,9 @@ image_pre = Image.fromarray(predict*255)
 imshow(image_pre)
 ```
 
-
-
-```
-<matplotlib.image.AxesImage at 0x7f9d75154be0>
-```
-
-
-
 ![png](ML和DL训练场/output_4_1.png)
 
-### Bagging
+#### Bagging
 
 ```python
 # bagging
@@ -147,17 +139,9 @@ image_pre = Image.fromarray(predict*255)
 imshow(image_pre)
 ```
 
-
-
-```
-<matplotlib.image.AxesImage at 0x7f9d71a9e7b8>
-```
-
-
-
 ![png](ML和DL训练场/output_6_1.png)
 
-### Boosting
+#### Boosting
 
 ```python
 # adaboost
@@ -177,14 +161,6 @@ image_pre1 = Image.fromarray(predict1*255)
 imshow(image_pre1)
 ```
 
-
-
-```
-<matplotlib.image.AxesImage at 0x7f9d75653278>
-```
-
-
-
 ![png](ML和DL训练场/output_8_1.png)
 
 
@@ -199,17 +175,9 @@ image_pre2 = Image.fromarray(predict2*255)
 imshow(image_pre2)
 ```
 
-
-
-```
-<matplotlib.image.AxesImage at 0x7f9d75623630>
-```
-
-
-
 ![png](ML和DL训练场/output_9_1.png)
 
-### GBDT
+#### GBDT
 
 ```python
 from sklearn.ensemble import GradientBoostingClassifier
@@ -224,17 +192,9 @@ image_pre4 = Image.fromarray(predict4*255)
 imshow(image_pre4)
 ```
 
-
-
-```
-<matplotlib.image.AxesImage at 0x7f9d7517fac8>
-```
-
-
-
 ![png](ML和DL训练场/output_11_1.png)
 
-### XGBoost
+#### XGBoost
 
 ```python
 import xgboost as xgb
@@ -259,10 +219,48 @@ imshow(image_pre3)
 
 
 
-```
-<matplotlib.image.AxesImage at 0x7f9d752e9518>
-```
-
-
-
 ![png](ML和DL训练场/output_13_1.png)
+
+## 方向研究
+
+### 迁移学习(Transfer Learning)
+
+**<font color="red">Transfer Learning Definition:</font>**
+Ability of a system to recognize and apply knowledge and skills learned in previous domains/tasks to novel domains/tasks.
+
+**<font color="red">相关研究工作</font>**
+
+1. 2014年Bengio等人[^1]研究深度学习中各个layer特征的可迁移性（或者说通用性）
+2. 戴文渊等人提出的TrAdaBoost算法就是典型的基于实例的迁移。
+3. DANN (Domain-Adversarial Neural Network)[^5]将近两年流行的对抗网络思想引入到迁移学习中
+
+### 增量学习(Incremental learning) 
+
+增量学习作为机器学习的一种方法，现阶段得到广泛的关注。在其中，输入数据不断被用于扩展现有模型的知识，即进一步训练模型，它代表了一种动态的学习的技术。对于满足**<font color="red">以下条件</font>**的学习方法可以定义为增量学习方法：
+
+- 可以学习新的信息中的有用信息
+- 不需要访问已经用于训练分类器的原始数据
+- 对已经学习的知识具有记忆功能
+- 在面对新数据中包含的新类别时，可以有效地进行处理
+
+**<font color="red">增量学习的分类</font>**
+
+| 序号 | 类别                             | 备注 |
+| ---- | -------------------------------- | ---- |
+| 1    | **Sample Incremental Learning**  |      |
+| 2    | **Class Incremental Learning**   |      |
+| 3    | **Feature Incremental Learning** |      |
+
+**<font color="red">相关研究工作</font>**
+
+1. **《End-to-End Incremental Learning》**Although deep learning approaches have stood out in recent years due to their state-of-the-art results, they continue to suffer from catastrophic forgetting, a dramatic decrease in overall performance when training with new classes added incrementally. This is due to current neural network architectures requiring the entire dataset, consisting of all the samples from the old as well as the new classes, to update the model -a requirement that becomes easily unsustainable as the number of classes grows. <font color="red">We address this issue with our approach to learn deep neural networks **incrementally**, using new data and only a small exemplar set corresponding to samples from the old classes.</font> This is based on a loss composed of a distillation measure to retain the knowledge acquired from the old classes, and a cross-entropy loss to learn the new classes. Our incremental training is achieved while keeping the entire framework end-to-end, i.e., learning the data representation and the classifier jointly, unlike recent methods with no such guarantees. We evaluate our method extensively on the **CIFAR-100 and ImageNet (ILSVRC 2012)** image classification datasets, and show state-of-the-art performance.[^6]
+
+## 引用
+
+[^1]: How transferable are features in deep neural networks（NIPS2014 Bengio et al.）
+[^2]: Learning and Transferring Mid-Level Image Representations using Convolutional Neural Networks（CVPR2014 Oquab.et al.）
+[^3]: Domain Adaptation for Large-Scale Sentiment Classification: A Deep Learning Approach（ICML2011 Glorot. Bengio.et al.）
+[^4]: Marginalized denoising autoencoders for domain adaptation (ICML2012 Chen et al.)
+[^5]: Domain-Adversarial Training of Neural Networks（JMLR2016 Ganin.et al.）
+[^6]: Castro, F. M., Marín-Jiménez, M. J., Guil, N., Schmid, C., & Alahari, K. (2018). End-to-end incremental learning. In *Proceedings of the European Conference on Computer Vision (ECCV)* (pp. 233-248).
+

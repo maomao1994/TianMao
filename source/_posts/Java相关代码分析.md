@@ -464,3 +464,117 @@ public class MongoAppender extends UnsynchronizedAppenderBase<ILoggingEvent> imp
 #### 查看日志细节
 
 ![](Java相关代码分析/log.png)
+
+## 使用递归的方法生成菜单
+
+摘抄于：<https://www.cnblogs.com/lucky-pin/p/10740037.html>
+
+**递归生成一个如图的菜单，编写两个类数据模型Menu、和创建树形的MenuTree。通过以下过程实现：**
+
+![](Java相关代码分析/file-tree.png)
+
+- 首先从菜单数据中获取所有根节点。
+
+- 为根节点建立次级子树并拼接上。
+
+- 递归为子节点建立次级子树并接上，直至为末端节点拼接上空的“树”。
+
+首先，编写数据模型Menu。每条菜单有自己的id、父节点parentId、菜单名称text、菜单还拥有次级菜单children。
+
+```java
+import java.util.List;
+
+public class Menu {
+    private String id;
+    private String parentId;
+    private String text;
+    private String url;
+    private String yxbz;
+    private List<Menu> children;     
+    public Menu(String id,String parentId,String text,String url,String yxbz) {
+        this.id=id;
+        this.parentId=parentId;
+        this.text=text;
+        this.url=url;
+        this.yxbz=yxbz;   
+    }
+        /*省略get\set*/  
+}
+```
+
+创建树形结构的类MenuTree。方法getRootNode获取所有根节点，方法builTree将根节点汇总创建树形结构，buildChilTree为节点建立次级树并拼接上当前树，递归调用buildChilTree不断为当前树开枝散叶直至找不到新的子树。完成递归，获取树形结构。
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class MenuTree {
+    private List<Menu> menuList = new ArrayList<Menu>();
+    public MenuTree(List<Menu> menuList) {
+        this.menuList=menuList;
+    }
+
+    //建立树形结构
+    public List<Menu> builTree(){
+        List<Menu> treeMenus =new  ArrayList<Menu>();
+        for(Menu menuNode : getRootNode()) {
+            menuNode=buildChilTree(menuNode);
+            treeMenus.add(menuNode);
+        }
+        return treeMenus;
+    }
+
+    //递归，建立子树形结构
+    private Menu buildChilTree(Menu pNode){
+        List<Menu> chilMenus =new  ArrayList<Menu>();
+        for(Menu menuNode : menuList) {
+            if(menuNode.getParentId().equals(pNode.getId())) {
+                chilMenus.add(buildChilTree(menuNode));
+            }
+        }
+        pNode.setChildren(chilMenus);
+        return pNode;
+    }
+
+    //获取根节点
+    private List<Menu> getRootNode() {         
+        List<Menu> rootMenuLists =new  ArrayList<Menu>();
+        for(Menu menuNode : menuList) {
+            if(menuNode.getParentId().equals("0")) {
+                rootMenuLists.add(menuNode);
+            }
+        }
+        return rootMenuLists;
+    }
+}
+```
+
+　最后，插入一些数据试试效果。得到的json就可以生成图一菜单了。
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import com.alibaba.fastjson.JSON;
+
+public class Hello {
+    public static void main(String []args) {
+        List<Menu>  menuList= new ArrayList<Menu>();
+        /*插入一些数据*/
+        menuList.add(new Menu("GN001D000","0","系统管理","/admin","Y"));
+        menuList.add(new Menu("GN001D100","GN001D000","权限管理","/admin","Y"));
+        menuList.add(new Menu("GN001D110","GN001D100","密码修改","/admin","Y"));
+        menuList.add(new Menu("GN001D120","GN001D100","新加用户","/admin","Y"));
+        menuList.add(new Menu("GN001D200","GN001D000","系统监控","/admin","Y"));
+        menuList.add(new Menu("GN001D210","GN001D200","在线用户","/admin","Y"));
+        menuList.add(new Menu("GN002D000","0","订阅区","/admin","Y"));
+        menuList.add(new Menu("GN003D000","0","未知领域","/admin","Y"));
+        /*让我们创建树*/
+        MenuTree menuTree =new MenuTree(menuList);
+        menuList=menuTree.builTree();
+        /*转为json看看效果*/
+        String jsonOutput= JSON.toJSONString(menuList);
+        System.out.println(jsonOutput);
+    }
+}
+```
+

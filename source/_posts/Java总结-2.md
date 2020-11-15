@@ -33,9 +33,9 @@ Java总结-2
 
 - 补充（List<Object>并不是ArrayList<String>的父类）
 
-  ![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/fanxing.png?lastModify=1574234543)
+  ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/fanxing.png?lastModify=1574234543)
 
-  ![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/fanxing2.png?lastModify=1574234543)
+  ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/fanxing2.png?lastModify=1574234543)
 
 #### √2.内部类？（成局静匿）
 
@@ -75,7 +75,7 @@ Java总结-2
 
 对方法或者被调用的方法加了同步锁。
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/StringBuffer.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/StringBuffer.png?lastModify=1574234543)
 
 - String的基本特征，不可变类，声明为final类，当然使用类反射是可以更改的，一般用在常量申明
 - StringBuffer与StringBuilder
@@ -318,17 +318,17 @@ public class StaticTest  {
 
 
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/exception.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/exception.png?lastModify=1574234543)
 
 #### 9. OutOfMemory详解
 
 | 名字                                                         | 图片                                                         | 解释                                                |
 | :----------------------------------------------------------- | :----------------------------------------------------------- | :-------------------------------------------------- |
-| Exception in thread "main" java.lang.StackOverflowError      | ![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/StackOverflowError.png?lastModify=1574234543) | 递归调用，深度太深                                  |
-| Exception in thread "main" java.lang.OutOfMemoryError: Java heap space | ![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/JavaHeapSpace.png?lastModify=1574234543) | 堆空间不够（）                                      |
-| java.lang.OutOfMemoryError: GC overhead limit exceeded       | ![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/GCoverheadlimitexceeded.png?lastModify=1574234543) | 垃圾回收事倍功半，GC直接罢工                        |
-| Exception in thread "main" java.lang.OutOfMemoryError: Direct buffer memory | ![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/DirectBufferMemory.png?lastModify=1574234543) | nio分配直接内存，不够导致                           |
-| Exception in thread "main" java.lang.OutOfMemoryError: unable to create new native thread | ![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/UnableToCreateNewNativeThread.png?lastModify=1574234543) | 同一个进程创建的线程太多了，Linux默认限制为1024个。 |
+| Exception in thread "main" java.lang.StackOverflowError      | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/StackOverflowError.png?lastModify=1574234543) | 递归调用，深度太深                                  |
+| Exception in thread "main" java.lang.OutOfMemoryError: Java heap space | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/JavaHeapSpace.png?lastModify=1574234543) | 堆空间不够（）                                      |
+| java.lang.OutOfMemoryError: GC overhead limit exceeded       | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/GCoverheadlimitexceeded.png?lastModify=1574234543) | 垃圾回收事倍功半，GC直接罢工                        |
+| Exception in thread "main" java.lang.OutOfMemoryError: Direct buffer memory | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/DirectBufferMemory.png?lastModify=1574234543) | nio分配直接内存，不够导致                           |
+| Exception in thread "main" java.lang.OutOfMemoryError: unable to create new native thread | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/UnableToCreateNewNativeThread.png?lastModify=1574234543) | 同一个进程创建的线程太多了，Linux默认限制为1024个。 |
 |                                                              |                                                              |                                                     |
 |                                                              |                                                              |                                                     |
 |                                                              |                                                              |                                                     |
@@ -575,7 +575,7 @@ public class B extends A {
 
 图中的绿色的虚线代表实现，绿色实线代表接口之间的继承，蓝色实线代表类之间的继承。
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/collection.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/collection.png?lastModify=1574234543)
 
 #### 1.HashMap？
 
@@ -642,11 +642,11 @@ public class B extends A {
 
 (1)先从 ArrayList 的构造函数
 
-| 编号 | 构造函数                                                    | 意义                                                     |
-| :--- | :---------------------------------------------------------- | :------------------------------------------------------- |
-| 1    | ![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/arraylist1.png?lastModify=1574234543) | 指定了初始化的容量大小                                   |
-| 2    | ![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/arraylist2.png?lastModify=1574234543) | 默认为空，在add的时候会生成一个大小为10的ArrayList       |
-| 3    | ![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/arraylist3.png?lastModify=1574234543) | 使用集合来构造，会拷贝集合中的值，使用集合大小进行初始化 |
+| 编号 | 构造函数                                                     | 意义                                                     |
+| :--- | :----------------------------------------------------------- | :------------------------------------------------------- |
+| 1    | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/arraylist1.png?lastModify=1574234543) | 指定了初始化的容量大小                                   |
+| 2    | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/arraylist2.png?lastModify=1574234543) | 默认为空，在add的时候会生成一个大小为10的ArrayList       |
+| 3    | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/arraylist3.png?lastModify=1574234543) | 使用集合来构造，会拷贝集合中的值，使用集合大小进行初始化 |
 
 （2）扩容（通常大小会变为原来大小的1.5倍，注意和HashMap的扩容机制进行比较）
 
@@ -682,7 +682,7 @@ public class B extends A {
 | 区别                          | HashMap                                                      | HashTable                                                    |
 | :---------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 底层实现                      | 1.8：Node数组+红黑树，1.8之前（链表散列）                    | 数组+链表（链表散列）                                        |
-| 扩容机制                      | 默认是16，扩容翻倍；HashMap 会将其扩充为2的幂次方大小（HashMap 中的`tableSizeFor()`方法保证）<br>![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/tableSizeFor.png?lastModify=1574234543) | 默认是11，扩容2n+1；指定的话，将会按照指定大小。             |
+| 扩容机制                      | 默认是16，扩容翻倍；HashMap 会将其扩充为2的幂次方大小（HashMap 中的`tableSizeFor()`方法保证）<br>![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/tableSizeFor.png?lastModify=1574234543) | 默认是11，扩容2n+1；指定的话，将会按照指定大小。             |
 | 效率                          | 相对高                                                       | 相对低一些                                                   |
 | 对Null key 和Null value的支持 | null 可以作为键，这样的键只有一个，可以有一个或多个键所对应的值为 null | 但是在 HashTable 中 put 进的键值只要有一个 null，直接抛出 NullPointerException |
 | 线程是否安全                  | HashMap 是非线程安全的                                       | HashTable 内部的方法基本都经过`synchronized` 修饰            |
@@ -691,11 +691,11 @@ public class B extends A {
 
 （1）Node（实现接口Map.Entry）
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/node.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/node.png?lastModify=1574234543)
 
 （2）TreeNode(继承自LinkedHashMap.Entry)
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/TreeNode.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/TreeNode.png?lastModify=1574234543)
 
 （3）ConcurrentHash的节点？
 
@@ -709,11 +709,11 @@ public class B extends A {
 
 
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/concurrenthashmap.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/concurrenthashmap.png?lastModify=1574234543)
 
 #### 6.ArrayLis实现
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/arraylist0.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/arraylist0.png?lastModify=1574234543)
 
 > - 实现接口
 >
@@ -739,9 +739,9 @@ public class B extends A {
 
 - LinkedList是通过双向链表实现的！
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/linkedlist.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/linkedlist.png?lastModify=1574234543)
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/linkedlist1.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/basic/linkedlist1.png?lastModify=1574234543)
 
 
 
@@ -965,7 +965,7 @@ public class ThreadTest {
 >
 > 对于同一个Thread使用两次start将会有什么结果？
 >
-> ![img](http://www.damaoguo.site/2019/11/20/Java总结/multithread/2start.png?lastModify=1574234543)
+> ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/multithread/2start.png?lastModify=1574234543)
 
 
 
@@ -973,7 +973,7 @@ public class ThreadTest {
 
 - 线程池的架构图
 
-  ![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/architecture.png?lastModify=1574234543)
+  ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/architecture.png?lastModify=1574234543)
 
   | 编号 | 名称                            | 说明             |
   | :--- | :------------------------------ | :--------------- |
@@ -1100,7 +1100,7 @@ ThreadPoolExecutor继承了AbstractExecutorService，AbstractExecutorService实�
 
 - execute执行流程图
 
-  ![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/execute.png?lastModify=1574234543)
+  ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/execute.png?lastModify=1574234543)
 
   > 场景：今天是周末，一银行网点只开放了几个窗口，当前值班窗口的数量就是核心线程池的上限。一开始，顾客陆续进来，值班的窗口还有空闲的，则进来一个人就可以直接去柜台办理。随着人数的增加，当天值班窗口全部有人在办理业务，这个时候有人进来，就要在大厅里找个座位坐下来等待，大厅的座位就是阻塞队列。但是，当天人数越来越多，连大厅的座位都坐满了人，这个时候这个网点领导将会通知将当天休息的窗口也打开（所有的窗口数目就是总的线程池上限），当人数还继续增加的话，处于安全考虑，银行就会拒绝继续进入，这就是执行了拒绝策略。
   >
@@ -1167,7 +1167,7 @@ ThreadPoolExecutor继承了AbstractExecutorService，AbstractExecutorService实�
   > >
   > > ReentrantReadWriteLock：ReentrantReadWriteLock使得多个读线程同时持有读锁（只要写锁未被占用），而写锁是独占的。写锁可以降级成读锁，读锁不能升级成写锁。
 
-  ![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/locks.png?lastModify=1574234543)
+  ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/locks.png?lastModify=1574234543)
 
 - juc-atomic 原子类框架（ J.U.C之atomic框架：Unsafe类）
 
@@ -1179,14 +1179,14 @@ ThreadPoolExecutor继承了AbstractExecutorService，AbstractExecutorService实�
 
 - juc-collections 集合框架
 
-  ![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/juc-collections.png?lastModify=1574234543)
+  ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/juc-collections.png?lastModify=1574234543)
 
 - juc-executors 执行器框架
 
   - 线程池
   - Future模式,Future接口仅仅定义了5个方法。
 
-  ![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/future.png?lastModify=1574234543)![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/futuretask_state.png?lastModify=1574234543)
+  ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/future.png?lastModify=1574234543)![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/futuretask_state.png?lastModify=1574234543)
 
   - Fork/Join框架
 
@@ -1686,21 +1686,21 @@ public class SyncAndLockCondition {
 
 ##### （1）概览
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/juc.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/juc.png?lastModify=1574234543)
 
 ##### (2)  并发容器
 
 - CopyOnWrite*(List,Set)
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/copyonwrite.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/copyonwrite.png?lastModify=1574234543)
 
 - Concurrent*(SkipListSet,SkipListMap,Map,LinkedQueue)
 
-  ![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/concurrent.png?lastModify=1574234543)
+  ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/concurrent.png?lastModify=1574234543)
 
 - Blocking*(Queue, Deque)(Array,Linked,Priority)
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/blocking.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/blocking.png?lastModify=1574234543)
 
 
 
@@ -1710,14 +1710,14 @@ public class SyncAndLockCondition {
 
 | 类                    | ji(Ctrl+H,Alt+7)                                             | 并发                                                         |                                                              |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| CopyOnWriteArrayList  | Cloneable (java.lang)<br/>List (java.util)<br/>    Collection (java.util)<br/>        Iterable (java.lang)<br/>Object (java.lang)<br/>RandomAccess (java.util)<br/>Serializable (java.io) | ![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/CopyOnWriteArrayList.png?lastModify=1574234543) | ReentrantLock,读取是完全不用加锁的，并且更厉害的是：写入也不会阻塞读取操作。`CopyOnWriteArrayList` 类的所有可变操作（add，set等等）都是通过创建底层数组的新副本来实现的。 |
-| CopyOnWriteArraySet   | AbstractSet (java.util)<br/>    AbstractCollection (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>        Object (java.lang)<br/>    Set (java.util)<br/>        Collection (java.util)<br/>Serializable (java.io) | * A {@link java.util.Set} that uses an internal {@link CopyOnWriteArrayList} * for all of its operations.<br>  Thus, it shares the same basic properties*<br/>![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/CopyOnWriteArraySet.png?lastModify=1574234543) | ReentrantLock                                                |
+| CopyOnWriteArrayList  | Cloneable (java.lang)<br/>List (java.util)<br/>    Collection (java.util)<br/>        Iterable (java.lang)<br/>Object (java.lang)<br/>RandomAccess (java.util)<br/>Serializable (java.io) | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/CopyOnWriteArrayList.png?lastModify=1574234543) | ReentrantLock,读取是完全不用加锁的，并且更厉害的是：写入也不会阻塞读取操作。`CopyOnWriteArrayList` 类的所有可变操作（add，set等等）都是通过创建底层数组的新副本来实现的。 |
+| CopyOnWriteArraySet   | AbstractSet (java.util)<br/>    AbstractCollection (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>        Object (java.lang)<br/>    Set (java.util)<br/>        Collection (java.util)<br/>Serializable (java.io) | * A {@link java.util.Set} that uses an internal {@link CopyOnWriteArrayList} * for all of its operations.<br>  Thus, it shares the same basic properties*<br/>![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/CopyOnWriteArraySet.png?lastModify=1574234543) | ReentrantLock                                                |
 | ConcurrentSkipListSet | AbstractSet (java.util)<br/>    AbstractCollection (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>        Object (java.lang)<br/>    Set (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>Cloneable (java.lang)<br/>NavigableSet (java.util)<br/>    SortedSet (java.util)<br/>        Set (java.util)<br/>            Collection (java.util)<br/>                Iterable (java.lang)<br/>Serializable (java.io) |                                                              |                                                              |
-| ConcurrentHashMap     | AbstractMap (java.util)<br/>    Map (java.util)<br/>    Object (java.lang)<br/>`ConcurrentMap (java.util.concurrent)`<br/>    Map (java.util)<br/>Serializable (java.io) | ![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/cas.png?lastModify=1574234543)           | JDK1.8:<br>Node + CAS + Synchronized                         |
+| ConcurrentHashMap     | AbstractMap (java.util)<br/>    Map (java.util)<br/>    Object (java.lang)<br/>`ConcurrentMap (java.util.concurrent)`<br/>    Map (java.util)<br/>Serializable (java.io) | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/cas.png?lastModify=1574234543) | JDK1.8:<br>Node + CAS + Synchronized                         |
 | ConcurrentSkipListMap | AbstractMap (java.util)<br/>    Map (java.util)<br/>    Object (java.lang)<br/>Cloneable (java.lang)<br/>ConcurrentNavigableMap (java.util.concurrent)<br/>    ConcurrentMap (java.util.concurrent)<br/>        Map (java.util)<br/>    `NavigableMap (java.util)`<br/>        SortedMap (java.util)<br/>            Map (java.util)<br/>Serializable (java.io) | 使用跳表实现Map 和使用哈希算法实现Map的另外一个不同之处是：哈希并不会保存元素的顺序，而跳表内所有的元素都是排序的。因此在对跳表进行遍历时，你会得到一个有序的结果。所以，如果你的应用需要有序性，那么跳表就是你不二的选择。JDK 中实现这一数据结构的类是ConcurrentSkipListMap。 |                                                              |
-| ArrayBlockingQueue    | AbstractQueue (java.util)<br/>    AbstractCollection (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>        Object (java.lang)<br/>    Queue (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>BlockingQueue (java.util.concurrent)<br/>    Queue (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>Serializable (java.io) | ![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/ArrayBlockingQueue.png?lastModify=1574234543) | Lock+Condition                                               |
+| ArrayBlockingQueue    | AbstractQueue (java.util)<br/>    AbstractCollection (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>        Object (java.lang)<br/>    Queue (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>BlockingQueue (java.util.concurrent)<br/>    Queue (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>Serializable (java.io) | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/ArrayBlockingQueue.png?lastModify=1574234543) | Lock+Condition                                               |
 | LinkedBlockingQueue   | AbstractQueue (java.util)<br/>    AbstractCollection (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>        Object (java.lang)<br/>    Queue (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>BlockingQueue (java.util.concurrent)<br/>    Queue (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>Serializable (java.io) | ArrayBlockingQueue与LinkedBlockingQueue的比较?<br>相同点：<br>ArrayBlockingQueue和LinkedBlockingQueue都是通过condition通知机制来实现可阻塞式插入和删除元素，并满足线程安全的特性；<br>ArrayBlockingQueue底层是采用的数组进行实现,而LinkedBlockingQueue则是采用链表数据结构；<br>不同点:<br>ArrayBlockingQueue插入和删除数据，只采用了一个lock，而LinkedBlockingQueue则是在插入和删除分别采用了`putLock`和`takeLock`，这样可以降低线程由于线程无法获取到lock而进入WAITING状态的可能性，从而提高了线程并发执行的效率。 |                                                              |
-| ConcurrentLinkedQueue | AbstractQueue (java.util)<br/>    AbstractCollection (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>        Object (java.lang)<br/>    Queue (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>Queue (java.util)<br/>    Collection (java.util)<br/>        Iterable (java.lang)<br/>Serializable (java.io) | 阻塞队列的典型例子是 BlockingQueue,非阻塞队列的典型例子是ConcurrentLinkedQueue，在实际应用中要根据实际需要选用阻塞队列或者非阻塞队列。 **阻塞队列可以通过加锁来实现，非阻塞队列可以通过 CAS 操作实现。**![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/ConcurrentLinkedQueue.png?lastModify=1574234543) | 无锁算法，底层基于**自旋+CAS**的方式实现。                   |
+| ConcurrentLinkedQueue | AbstractQueue (java.util)<br/>    AbstractCollection (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>        Object (java.lang)<br/>    Queue (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>Queue (java.util)<br/>    Collection (java.util)<br/>        Iterable (java.lang)<br/>Serializable (java.io) | 阻塞队列的典型例子是 BlockingQueue,非阻塞队列的典型例子是ConcurrentLinkedQueue，在实际应用中要根据实际需要选用阻塞队列或者非阻塞队列。 **阻塞队列可以通过加锁来实现，非阻塞队列可以通过 CAS 操作实现。**![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/ConcurrentLinkedQueue.png?lastModify=1574234543) | 无锁算法，底层基于**自旋+CAS**的方式实现。                   |
 | ConcurrentLinkedDeque | AbstractCollection (java.util)<br/>    Collection (java.util)<br/>        Iterable (java.lang)<br/>    Object (java.lang)<br/>Deque (java.util)<br/>    Queue (java.util)<br/>        Collection (java.util)<br/>            Iterable (java.lang)<br/>Serializable (java.io) |                                                              |                                                              |
 
 
@@ -2138,7 +2138,7 @@ tryReleaseShared(int)//共享方式。尝试释放资源，成功则返回true�
 > | 6    | exceptional  | 表示任务已经执行完成（异常完成），且任务异常已设置完成，属于最终状态； |
 > | 7    | normal       | 表示任务已经执行完成（正常完成），且任务结果已设置完成，属于最终状态； |
 >
-> ![img](http://www.damaoguo.site/2019/11/20/Java总结/juc/FutureTask.png?lastModify=1574234543)
+> ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/juc/FutureTask.png?lastModify=1574234543)
 
 
 
@@ -2213,13 +2213,13 @@ tryReleaseShared(int)//共享方式。尝试释放资源，成功则返回true�
 
 #### 2.JVM内存区域（运行时数据区）
 
-| 编号 | 名字                                                      | 功能                                                         | 备注                                                         |
-| :--- | :-------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| 1    | 堆<br>![img](http://www.damaoguo.site/2019/11/20/Java总结/jvm/heap.png?lastModify=1574234543) | 主要用于存放新创建的对象 (所有对象都在这里分配内存)          | jdk1.8之后永久代被替换成为了元空间（Metaspace）              |
-| 2    | 方法区                                                    | 被虚拟机加载的类信息(版本、字段、方法、接口)、常量、静态变量、即时编译器编译后的代码等数据（加常静即） | 运行时常量池是方法区的一部分。Class 文件中除了有类的版本、字段、方法、接口等描述信息外，还有常量池信息（用于存放编译期生成的各种字面量和符号引用）方法中的基本类型本地变量将直接存储在工作内存的栈帧结构中； |
-| 3    | 虚拟机栈（线程私有）                                      | 动态链接，方法出口，操作数栈，局部变量表（动方操局）         | 每个 Java 方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，就对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。 |
-| 4    | 本地方法栈（线程私有）                                    |                                                              | 区别是： **虚拟机栈为虚拟机执行 Java 方法 （也就是字节码）服务，而本地方法栈则为虚拟机使用到的 Native 方法服务。** 在 HotSpot 虚拟机中和 Java 虚拟机栈合二为一。 |
-| 5    | 程序计数器（线程私有）                                    |                                                              | 程序计数器主要有下面两个作用：（1）字节码解释器通过改变程序计数器来依次读取指令，从而实现代码的流程控制，如：顺序执行、选择、循环、异常处理。在多线程的情况下，（2）程序计数器用于记录当前线程执行的位置，从而当线程被切换回来的时候能够知道该线程上次运行到哪儿了。 |
+| 编号 | 名字                                                         | 功能                                                         | 备注                                                         |
+| :--- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| 1    | 堆<br>![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/jvm/heap.png?lastModify=1574234543) | 主要用于存放新创建的对象 (所有对象都在这里分配内存)          | jdk1.8之后永久代被替换成为了元空间（Metaspace）              |
+| 2    | 方法区                                                       | 被虚拟机加载的类信息(版本、字段、方法、接口)、常量、静态变量、即时编译器编译后的代码等数据（加常静即） | 运行时常量池是方法区的一部分。Class 文件中除了有类的版本、字段、方法、接口等描述信息外，还有常量池信息（用于存放编译期生成的各种字面量和符号引用）方法中的基本类型本地变量将直接存储在工作内存的栈帧结构中； |
+| 3    | 虚拟机栈（线程私有）                                         | 动态链接，方法出口，操作数栈，局部变量表（动方操局）         | 每个 Java 方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，就对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。 |
+| 4    | 本地方法栈（线程私有）                                       |                                                              | 区别是： **虚拟机栈为虚拟机执行 Java 方法 （也就是字节码）服务，而本地方法栈则为虚拟机使用到的 Native 方法服务。** 在 HotSpot 虚拟机中和 Java 虚拟机栈合二为一。 |
+| 5    | 程序计数器（线程私有）                                       |                                                              | 程序计数器主要有下面两个作用：（1）字节码解释器通过改变程序计数器来依次读取指令，从而实现代码的流程控制，如：顺序执行、选择、循环、异常处理。在多线程的情况下，（2）程序计数器用于记录当前线程执行的位置，从而当线程被切换回来的时候能够知道该线程上次运行到哪儿了。 |
 
 堆的细节信息（使用虚拟机参数-XX:+PrintGCDetails）
 
@@ -2264,7 +2264,7 @@ tryReleaseShared(int)//共享方式。尝试释放资源，成功则返回true�
 > >
 > > > 每一个类都有一个对应它的类加载器。系统中的 ClassLoder 在协同工作的时候会默认使用 **双亲委派模型** 。即在类加载的时候，系统会首先判断当前类是否被加载过。已经被加载的类会直接返回，否则才会尝试加载。**加载的时候，首先会把该请求委派该父类加载器的 loadClass() 处理，因此所有的请求最终都应该传送到顶层的启动类加载器 BootstrapClassLoader 中。当父类加载器无法处理时，才由自己来处理。**当父类加载器为null时，会使用启动类加载器 `BootstrapClassLoader` 作为父类加载器。
 > > >
-> > > ![img](http://www.damaoguo.site/2019/11/20/Java总结/jvm/shuangqinweipai.png?lastModify=1574234543)
+> > > ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/jvm/shuangqinweipai.png?lastModify=1574234543)
 > > >
 > > > 双亲委派模型保证了Java程序的稳定运行，可以避免类的重复加载（JVM 区分不同类的方式不仅仅根据类名，相同的类文件被不同的类加载器加载产生的是两个不同的类），也保证了 Java 的核心 API 不被篡改。如果不用没有使用双亲委派模型，而是每个类加载器加载自己的话就会出现一些问题，比如我们编写一个称为 `java.lang.Object` 类的话，那么程序运行的时候，系统就会出现多个不同的 `Object` 类。
 
@@ -2358,16 +2358,16 @@ tryReleaseShared(int)//共享方式。尝试释放资源，成功则返回true�
 
 #### （7）常见的垃圾回收器有那些？
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/jvm/gc.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/jvm/gc.png?lastModify=1574234543)
 
 | 编号 | 回收器                           | 算法                                                         | 步骤                                                         | 备注                                                         |
 | :--- | :------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| 1    | Serial 收集器（串行）            | ![img](http://www.damaoguo.site/2019/11/20/Java总结/jvm/serial.png?lastModify=1574234543)        |                                                              | 单CPU的client模式                                            |
-| 2    | ParNew 收集器（并行）            | ![img](http://www.damaoguo.site/2019/11/20/Java总结/jvm/parnew.png?lastModify=1574234543)        |                                                              | 它是许多运行在Server 模式下的虚拟机的首要选择，除了 Serial 收集器外，只有它能与 CMS 收集器配合工作。 |
+| 1    | Serial 收集器（串行）            | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/jvm/serial.png?lastModify=1574234543) |                                                              | 单CPU的client模式                                            |
+| 2    | ParNew 收集器（并行）            | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/jvm/parnew.png?lastModify=1574234543) |                                                              | 它是许多运行在Server 模式下的虚拟机的首要选择，除了 Serial 收集器外，只有它能与 CMS 收集器配合工作。 |
 | 3    | Parallel Scavenge 收集器（并行） |                                                              |                                                              | （吞吐量）Parallel Scavenge 收集器关注点是吞吐量（高效率的利用 CPU），后台运行不需要太多交互 |
 | 4    | Serial Old 收集器（串行）        |                                                              |                                                              | 单CPU的client模式，和CMS配合                                 |
 | 5    | Parallel Old 收集器（并行）      |                                                              |                                                              | （吞吐量）后台运行不需要太多交互                             |
-| 6    | CMS 收集器（并发）               | ![img](http://www.damaoguo.site/2019/11/20/Java总结/jvm/cms.png?lastModify=1574234543)<br>标记清除 | （1）初始标记<br>（2）并发标记（混合）<br/>（3）重新标记<br/>（4）并发清除（混合） | CMS 等垃圾收集器的关注点更多的是用户线程的停顿时间（提高用户体验），集中使用在互联网或者B/S系统服务端 |
+| 6    | CMS 收集器（并发）               | ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/jvm/cms.png?lastModify=1574234543)<br>标记清除 | （1）初始标记<br>（2）并发标记（混合）<br/>（3）重新标记<br/>（4）并发清除（混合） | CMS 等垃圾收集器的关注点更多的是用户线程的停顿时间（提高用户体验），集中使用在互联网或者B/S系统服务端 |
 | 7    | G1 收集器（并发）                |                                                              |                                                              | 面向服务端，将来替换CMS                                      |
 
 
@@ -2740,7 +2740,7 @@ public class DiamondDependencyTest {
 > >
 > > > 线程只能直接操作工作内存中的变量，不同线程之间的变量值传递需要通过主内存来完成。
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/jvm/jmm.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/jvm/jmm.png?lastModify=1574234543)
 
 > 操作：
 >
@@ -3431,21 +3431,21 @@ NIO:<http://wiki.jikexueyuan.com/project/java-nio-zh/java-nio-non-blocking-serve
 
 - 第一种方式（使用CompletionHandler）
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/io/aio_read_1.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/io/aio_read_1.png?lastModify=1574234543)
 
 - 第二种方式（使用Future）
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/io/aio_read_2.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/io/aio_read_2.png?lastModify=1574234543)
 
 (2)write
 
 - 第一种方式（使用CompletionHandler）
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/io/aio_write_1.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/io/aio_write_1.png?lastModify=1574234543)
 
 - 第二种方式（使用Future）
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/io/aio_write_2.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/io/aio_write_2.png?lastModify=1574234543)
 
 #### 9.什么是Java序列化，如何实现Java序列化？
 
@@ -3521,7 +3521,7 @@ NIO:<http://wiki.jikexueyuan.com/project/java-nio-zh/java-nio-non-blocking-serve
 >
 > (3)Java 标准类库本身提供了几种 Files.copy 的实现。（java.nio.file.Files.copy）
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/io/nio_copy.png?lastModify=1574234543)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93/io/nio_copy.png?lastModify=1574234543)
 
 > 对于 Copy 的效率，这个其实与操作系统和配置等情况相关，总体上来说，NIO transferTo/From 的方式可能更快，因为它更能利用现代操作系统底层机制，避免不必要拷贝 和上下文切换。
 

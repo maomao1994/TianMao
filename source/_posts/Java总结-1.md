@@ -18,19 +18,19 @@ Java总结-1
 
 （1）三种比较？
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/compare.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/compare.png)
 
 （2）七层结构细节？
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/qiceng.gif)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/qiceng.gif)
 
 （3）每一层对应的设备？
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/device.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/device.png)
 
 #### 2.说一说TCP/IP协议簇？
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/protocol.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/protocol.png)
 
 - 应用层（它是计算机用户，以及各种应用程序和网络之间的接口，其功能是直接向用户提供服务，完成用户希望在网络上完成的各种工作。）
   - SNMP
@@ -50,7 +50,7 @@ Java总结-1
 
 > 握手过程可以由客户端调用socket开启，客户端发送SYN和Seq，closed状态变换为SYN_SEND状态，服务器端由LISTEN状态变换为SYN_RECV状态，服务端回送SYN+ACK，客户端接收，客户端状态变为Established，客户端发送ACK，服务端接收到ACK，状态变为Established，至此，TCP三次握手的过程就完成了。 （1）第一次握手：服务端确定（服务端可以接收数据，客户端可以发送数据） （2）第二次握手：客户端确定（服务端可以接收数据，服务端可以接收数据） （3）第三次握手：服务端确定（客户端可以接收数据） 以上，（1）（2）（3）是的双方确定彼此可以接收和发送数据。
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/woshou.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/woshou.png)
 
 #### 4.TCP四次挥手的过程？
 
@@ -62,7 +62,7 @@ Established------>FIN_WAIT_1------>FIN_WAIT_2------>TIME_WAIT------>CLOSED;
 
 Establised------>CLOSE_WAIT------>LAST_ACK------>CLOSED.
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/huishou.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/huishou.png)
 
 #### 5.TCP在三次握手的过程中是如何超时重传的？
 
@@ -207,17 +207,17 @@ DNS资源记录：
 
 ![]()![img]()
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/tcp.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/tcp.png)
 
 （2）UDP头部由8个字节构成，如下图：
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/udp.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/udp.png)
 
 #### 16.IP头部
 
 
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/ip.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/ip.png)
 
 #### 17.HTTP请求，HTTP响应，字段？
 
@@ -241,7 +241,7 @@ DNS资源记录：
 > | 8    | TRACE   | 回显服务器收到的请求，主要用于测试或诊断。                   |
 > | 9    | PATCH   | 是对 PUT 方法的补充，用来对已知资源进行局部更新 。           |
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/request.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/request.png)
 
 > （2）HTTP响应
 >
@@ -473,7 +473,7 @@ TCP通过**慢启动、拥塞避免、快重传以及快恢复**这四个算法�
 >
 > > 当然，也有的快恢复算法是将当前拥塞窗口再增大3个报文段的值，因为既然收到了3个重复的ACK，则说明有三个分组已经离开了网络，不在占用网络资源而是停留在对方缓存当中，可以适当将窗口值增大。
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/yongsekongzhi.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/yongsekongzhi.png)
 
 #### 23.TCP的流量控制？
 
@@ -498,7 +498,7 @@ TCP通过**慢启动、拥塞避免、快重传以及快恢复**这四个算法�
 
 #### 26.IP数据报格式？
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/network/ip.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//network/ip.png)
 
 #### 27.ABC类地址
 
@@ -1080,7 +1080,7 @@ public class MultiThread {
 >
 > <https://www.nowcoder.com/questionTerminal/780dce19969445c5a7814c0ff087c103>
 >
-> ![img](http://www.damaoguo.site/2019/11/20/Java总结/os/yemianzhihuan.png)
+> ![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//os/yemianzhihuan.png)
 
 ### （四）I/O
 
@@ -1247,9 +1247,9 @@ public class MultiThread {
 - 指向区间:B树开区间,B+树前闭后开
 - 叶节点是否增加指针?B树没有,B+树有
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/btree.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//basic/btree.png)
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/basic/bplustree.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//basic/bplustree.png)
 
 ### √2.二叉树的遍历，非递归？
 
@@ -1673,7 +1673,7 @@ public class CycQueue<T> {
 
 #### （1）堆排序
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/algo/headsort.gif)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//algo/headsort.gif)
 
 
 
@@ -2111,7 +2111,7 @@ public class Main {
 - 字节跳动客户端2019笔试题目，圆圈，点，道路
 - 阿里巴巴括号匹配的种类
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/algorithm/Catalan.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//algorithm/Catalan.png)
 
 ### 10.排序算法    
 
@@ -2123,7 +2123,7 @@ public class Main {
 - 时间复杂度（快些归堆O(nlogn)）      
 - 堆排 也应该掌握   
 
-![img](http://www.damaoguo.site/2019/11/20/Java总结/algorithm/sortmethod.png)
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//algorithm/sortmethod.png)
 
 ### 11. 树    
 

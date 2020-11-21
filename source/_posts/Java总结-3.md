@@ -94,15 +94,95 @@ p-->pp(结束)
 
 
 
-### 8.秒杀系统？秒杀,能列出常见的排队、验证码、库存扣减方式对系统高并发的影响?
+### 8.秒杀系统？
+
+秒杀,能列出常见的排队、验证码、库存扣减方式对系统高并发的影响?
 
 
 
-### 9. Spring的启动过程是怎样的？
+### 9. Spring 的启动过程是怎样的？
 
-#### （1）对程序进行断点debug？
+#### （1）SpringApplication.java注释
 
+```java
+/**
+ * Class that can be used to bootstrap and launch a Spring application from a Java main
+ * method. By default class will perform the following steps to bootstrap your
+ * application:
+ *
+ * <ul>
+ * <li>Create an appropriate {@link ApplicationContext} instance (depending on your
+ * classpath)</li>
+ * <li>Register a {@link CommandLinePropertySource} to expose command line arguments as
+ * Spring properties</li>
+ * <li>Refresh the application context, loading all singleton beans</li>
+ * <li>Trigger any {@link CommandLineRunner} beans</li>
+ * </ul>
+ *
+ * In most circumstances the static {@link #run(Class, String[])} method can be called
+ * directly from your {@literal main} method to bootstrap your application:
+ *
+ * <pre class="code">
+ * &#064;Configuration
+ * &#064;EnableAutoConfiguration
+ * public class MyApplication  {
+ *
+ *   // ... Bean definitions
+ *
+ *   public static void main(String[] args) {
+ *     SpringApplication.run(MyApplication.class, args);
+ *   }
+ * }
+ * </pre>
+ *
+ * <p>
+ * For more advanced configuration a {@link SpringApplication} instance can be created and
+ * customized before being run:
+ *
+ * <pre class="code">
+ * public static void main(String[] args) {
+ *   SpringApplication application = new SpringApplication(MyApplication.class);
+ *   // ... customize application settings here
+ *   application.run(args)
+ * }
+ * </pre>
+ *
+ * {@link SpringApplication}s can read beans from a variety of different sources. It is
+ * generally recommended that a single {@code @Configuration} class is used to bootstrap
+ * your application, however, you may also set {@link #getSources() sources} from:
+ * <ul>
+ * <li>The fully qualified class name to be loaded by
+ * {@link AnnotatedBeanDefinitionReader}</li>
+ * <li>The location of an XML resource to be loaded by {@link XmlBeanDefinitionReader}, or
+ * a groovy script to be loaded by {@link GroovyBeanDefinitionReader}</li>
+ * <li>The name of a package to be scanned by {@link ClassPathBeanDefinitionScanner}</li>
+ * </ul>
+ *
+ * Configuration properties are also bound to the {@link SpringApplication}. This makes it
+ * possible to set {@link SpringApplication} properties dynamically, like additional
+ * sources ("spring.main.sources" - a CSV list) the flag to indicate a web environment
+ * ("spring.main.web-application-type=none") or the flag to switch off the banner
+ * ("spring.main.banner-mode=off").
+ *
+ * @author Phillip Webb
+ * @author Dave Syer
+ * @author Andy Wilkinson
+ * @author Christian Dupuis
+ * @author Stephane Nicoll
+ * @author Jeremy Rickard
+ * @author Craig Burke
+ * @author Michael Simons
+ * @author Madhura Bhave
+ * @author Brian Clozel
+ * @author Ethan Rubinson
+ * @since 1.0.0
+ * @see #run(Class, String[])
+ * @see #run(Class[], String[])
+ * @see #SpringApplication(Class...)
+ */
+```
 
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//spring/springapplication_run.png)
 
 
 
@@ -213,12 +293,10 @@ C1-.->D1(生成代理实例)
 
 ### 2.Spring Boot启动过程<https://www.e-learn.cn/content/qita/2004793>
 
-### 3.websocket？
+### 3. 自定义spring-boot-starter
 
-#### （1）后台向前端推送？
+![img](https://damaoguo.github.io/2016/11/20/Java%E6%80%BB%E7%BB%93//spring/spring-boot-starter.png)
 
-#### （2）后端向指定的前端推送？
-
-#### （3）前端两个用户进行通信？
-
-#### （4）监控系统，jvm负载
+- 写一个@Enable***的注解，@Import相关的@Configuration
+- 写具体的实现
+- 写@Configuration，创建Bean

@@ -385,3 +385,7 @@ sed [-nefri] 'command'  文件名
 - 输出结果
 
 ![](Linux命令/awk-out.png)
+
+- awk简单命令
+
+![](Linux命令/awk-1.png)
